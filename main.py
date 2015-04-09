@@ -15,7 +15,11 @@ try:
 except:
 	sys.exit(1)
 
-os.system("apache")
+def draw_pixbuf(widget, event):
+        print("test")
+        path = "./test.jpeg"
+        pixbuf = gtk.gdk.pixbuf_new_from_file(path)
+        widget.window.draw_pixbuf(widget.style.bg_gc[gtk.STATE_NORMAL], pixbuf, 0, 0, 0,0)
 
 class Application():
     def __init__(self):
@@ -25,7 +29,9 @@ class Application():
         self.builder.add_from_file(self.gladefile)
         self.builder.connect_signals(self)
         self.main_window = self.builder.get_object("Main Window") 
+        self.fixed1 = self.builder.get_object("fixed1") 
         self.running = False
+        self.fixed1.connect('expose-event', draw_pixbuf)
 
         self.main_window.show_all()
 
