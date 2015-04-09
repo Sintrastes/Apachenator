@@ -18,7 +18,6 @@ except:
 os.system("apache")
 
 class Application():
-    """This is an Hello World GTK application"""
     def __init__(self):
         #Set the Glade file
         self.gladefile = "UI.glade"  
