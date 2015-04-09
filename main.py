@@ -1,5 +1,5 @@
 import os
-
+import pango
 import sys
 import subprocess
 import threading
@@ -17,9 +17,10 @@ except:
 
 def draw_pixbuf(widget, event):
         print("test")
-        path = "./test.jpeg"
+        path = "./ApachenatorBackground.png"
         pixbuf = gtk.gdk.pixbuf_new_from_file(path)
-        widget.window.draw_pixbuf(widget.style.bg_gc[gtk.STATE_NORMAL], pixbuf, 0, 0, 0,0)
+        scaled_buf = pixbuf.scale_simple(869,440,gtk.gdk.INTERP_BILINEAR)
+        widget.window.draw_pixbuf(widget.style.bg_gc[gtk.STATE_NORMAL], scaled_buf, 0, 0, 0,0)
 
 class Application():
     def __init__(self):
@@ -32,6 +33,30 @@ class Application():
         self.fixed1 = self.builder.get_object("fixed1") 
         self.running = False
         self.fixed1.connect('expose-event', draw_pixbuf)
+
+        self.button = self.builder.get_object("button1")
+        label = self.button.child
+        label.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
+
+        self.button = self.builder.get_object("button2")
+        label = self.button.child
+        label.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
+
+        self.button = self.builder.get_object("button3")
+        label = self.button.child
+        label.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
+
+        self.button = self.builder.get_object("Connect")
+        label = self.button.child
+        label.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
+
+        self.status = self.builder.get_object("Status")
+        self.status.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        self.status.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
 
         self.main_window.show_all()
 
