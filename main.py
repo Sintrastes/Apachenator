@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import pango
 import sys
@@ -45,6 +46,11 @@ class Application():
         label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
 
         self.button = self.builder.get_object("button3")
+        label = self.button.child
+        label.modify_font(pango.FontDescription("eufm10 Bold 26"))
+        label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))
+
+        self.button = self.builder.get_object("button4")
         label = self.button.child
         label.modify_font(pango.FontDescription("eufm10 Bold 26"))
         label.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse('#000000'))

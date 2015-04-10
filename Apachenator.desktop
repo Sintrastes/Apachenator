@@ -1,9 +1,10 @@
 [Desktop Entry]
 Version=1337
 Name=Apachenator
-Comment=test
-Path=/home/nate/code/python/WebServerProject
-Exec=/home/nate/code/python/WebServerProject/run.sh
+Comment=The best Apache front end of all time!
+Path=/opt/apachenator/
+Exec=/opt/apachenator/main.py
+Icon=/opt/apachenator/icon.png
 Terminal=false
 Type=Application
-Categories=Application
+Categories=Utility;Application;
